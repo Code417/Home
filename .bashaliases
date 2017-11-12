@@ -1,0 +1,111 @@
+#!/bin/bash
+##### "This is a dynamically self-generated file."
+##### "To add a new entry add a new alias, "
+##### "then use the reload command."
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias anno='nano -SLOwcUP --tabsize=4'
+alias aptinstall='  sudo apt-get -y install'
+alias aptuninstall='sudo apt-get -y uninstall'
+alias aptupgrade='  sudo apt-get -f upgrade'
+alias bashaliases='nano -SLOwcUP --tabsize=4 ~/.bashaliases'
+alias bashfunctions='nano -SLOwcUP --tabsize=4 ~/.bashfunctions'
+alias bashrc='nano -SLOwcUP --tabsize=4 ~/.bashrc'
+alias bk.bashaliases='cat ~/.bashaliases > ~/.bashaliases.bk'
+alias bk.bashfunctions='cat ~/.bashfunctions > ~/.bashfunctions.bk'
+alias bk.bashrc='cat ~/.bashrc > ~/.bashrc.bk'
+alias body='curl -s'
+alias c='echo -en "\033[00m";clear'
+alias cd..='cd ..'
+alias clear='echo -en "\033[00m";clear'
+alias cls='echo -en "\033[00m";clear'
+alias colors='echo -e "___________________________________
+\033[02;30m 02;30m \033[00m|\033[00;30m 00;30m \033[00m|\033[01;30m 01;30m \033[00m|\033[01;40m 01;40m \033[00m  \n\
+\033[02;31m 02;31m \033[00m|\033[00;31m 00;31m \033[00m|\033[01;31m 01;31m \033[00m|\033[01;41m 01;41m \033[00m  \n\
+\033[02;32m 02;32m \033[00m|\033[00;32m 00;32m \033[00m|\033[01;32m 01;32m \033[00m|\033[01;42m 01;42m \033[00m  \n\
+\033[02;33m 02;33m \033[00m|\033[00;33m 00;33m \033[00m|\033[01;33m 01;33m \033[00m|\033[01;43m 01;43m \033[00m  \n\
+\033[02;34m 02;34m \033[00m|\033[00;34m 00;34m \033[00m|\033[01;34m 01;34m \033[00m|\033[01;44m 01;44m \033[00m  \n\
+\033[02;35m 02;35m \033[00m|\033[00;35m 00;35m \033[00m|\033[01;35m 01;35m \033[00m|\033[01;45m 01;45m \033[00m  \n\
+\033[02;36m 02;36m \033[00m|\033[00;36m 00;36m \033[00m|\033[01;36m 01;36m \033[00m|\033[01;46m 01;46m \033[00m  \n\
+\033[02;37m 02;37m \033[00m|\033[00;37m 00;37m \033[00m|\033[01;37m 01;37m \033[00m|\033[01;47m 01;47m \033[00m  \n\
+\_______|________|________|_______/"'
+alias cp='cp -iv'
+alias e='exit;exit'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias fix.tty='stty sane'
+alias function.print='declare -f'
+alias git.account.test='ssh -T git@github.com'
+alias git.clone='git clone'
+alias git.clone.home='git.clone git@github.com:UsagiCode/Home.git'
+alias git.commit='git commit -m "auto sync from $(hostname -f)"'
+alias git.init='git init'
+alias git.status='git status'
+alias git.sync='git add .#;'
+alias git.sync.remote=''
+alias git.revert="git revert "
+alias git.log="git log --oneline"
+alias git.log.multiline="git log"
+alias grep='grep --color=auto'
+alias header='curl -s -D - -o /dev/null'
+alias l='ls -CF'
+alias la='ls -A'
+alias less='less -FSRXc'
+alias lines='wc -l '
+alias ll='ls -FGlAhp'
+alias ls='ls --color=auto'
+alias man.strftime='man strftime'
+alias mkdir='mkdir -pv'
+alias mv='mv -iv'
+alias n='anno'
+alias na='anno'
+alias nan='anno'
+alias nano='anno'
+alias nao='anno'
+alias net.http.date='echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null'
+alias net.http.date.loop='while true; do echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null; done'
+alias net.show.open.tcp='lsof -i'
+alias q='exit;exit'
+alias quit='exit;exit'
+alias quote='cat>> quote.txt;#'
+alias reload='source .bashrc'
+alias rem='#'
+alias todo='cat>> todo.txt;#'
+alias v='ip addr show|grep inet'
+alias v4='ip addr show|grep inet|grep --color=never -v inet6|awk '\''{$1= "";print $0}'\'''
+alias v6='ip addr show|grep inet|grep --color=never    inet6|awk '\''{$1= "";print $0}'\'''
+alias which='type -all'
+alias ~='cd ~'
+
+
+
+
+aliasout () 
+{ 
+    cat > /dev/null  <<EOF
+###"If your hash bang is /bin/sh then you should care about what POSIX says. type and hash's exit codes aren't terribly well defined by POSIX,"
+###"and hash is seen to exit successfully when the command doesn't exist (haven't seen this with type yet)." 
+###"command's exit status is well defined by POSIX, so that one is probably the safest to use."
+###"'"> command -v foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+###"'"> type foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+###"'"> hash foo 2>/dev/null || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+EOF
+
+    cat > $(basename "$BASH_SOURCE")  <<EOF
+#!/bin/bash
+##### "This is a dynamically self-generated file."
+##### "To add a new entry add a new alias, "
+##### "then use the reload command."
+EOF
+
+    alias >> $(basename "$BASH_SOURCE");
+    echo -en "\n\n\n\n" >> $(basename "$BASH_SOURCE");
+    declare -f aliasout >> $(basename "$BASH_SOURCE");
+    echo aliasout >> $(basename "$BASH_SOURCE")
+}
+aliasout
