@@ -9,7 +9,8 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias anno='nano -SLOwcUP --tabsize=4'
+alias anno='nano.custom'
+alias ao='nano.custom'
 alias aptinstall='  sudo apt-get -y install'
 alias aptuninstall='sudo apt-get -y uninstall'
 alias aptupgrade='  sudo apt-get -f upgrade'
@@ -43,7 +44,7 @@ alias function.print='declare -f'
 alias git.account.test='ssh -T git@github.com'
 alias git.clone='git clone'
 alias git.clone.home='git.clone git@github.com:UsagiCode/Home.git'
-alias git.commit='git commit -m "auto sync from $(hostname -f)"'
+alias git.commit.auto='git commit -m "auto sync from $(hostname -f)"'
 alias git.init='git init'
 alias git.log='git log --oneline'
 alias git.log.multiline='git log'
@@ -53,8 +54,8 @@ alias git.push='git push'
 alias git.push.master='git push -u origin master'
 alias git.revert='git revert'
 alias git.status='git status'
-alias git.sync='git add . ; git.commit'
-alias git.sync.remote=''
+alias git.sync='git add . ; git.commit.auto'
+alias git.sync.remote='git add . ; git.commit.auto; git.push.master'
 alias grep='grep --color=auto'
 alias header='curl -s -D - -o /dev/null'
 alias l='ls -CF'
@@ -66,14 +67,17 @@ alias ls='ls --color=auto'
 alias man.strftime='man strftime'
 alias mkdir='mkdir -pv'
 alias mv='mv -iv'
-alias n='anno'
-alias na='anno'
-alias nan='anno'
-alias nano='anno'
-alias nao='anno'
+alias n='nano.custom'
+alias na='nano.custom'
+alias nan='nano.custom'
+alias nano='nano.custom'
+alias nano.custom='nano -SLOwcUP --tabsize=4'
+alias nao='nano.custom'
 alias net.http.date='echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null'
 alias net.http.date.loop='while true; do echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null; done'
 alias net.show.open.tcp='lsof -i'
+alias nno='nano.custom'
+alias no='nano.custom'
 alias q='exit;exit'
 alias quit='exit;exit'
 alias quote='cat>> quote.txt;#'
@@ -85,6 +89,10 @@ alias v4='ip addr show|grep inet|grep --color=never -v inet6|awk '\''{$1= "";pri
 alias v6='ip addr show|grep inet|grep --color=never    inet6|awk '\''{$1= "";print $0}'\'''
 alias which='type -all'
 alias ~='cd ~'
+
+
+
+
 
 
 
@@ -108,6 +116,7 @@ EOF
 EOF
 
     alias >> $(basename "$BASH_SOURCE");
+    echo -en "\n\n\n\n" >> $(basename "$BASH_SOURCE");
     echo -en "\n\n\n\n" >> $(basename "$BASH_SOURCE");
     declare -f aliasout >> $(basename "$BASH_SOURCE");
     echo aliasout >> $(basename "$BASH_SOURCE")
