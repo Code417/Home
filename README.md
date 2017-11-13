@@ -1,2 +1,2 @@
 # Home
-Default Home Directory Linux Lab Computers In Library
+Default *nix Home Directory For Lab Computers In Library

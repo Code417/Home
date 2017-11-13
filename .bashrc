@@ -19,8 +19,8 @@ esac
 if [ -f ~/.bashaliases ]; then
     . ~/.bashaliases
 fi
-if [ -f ~/.bashfunction ]; then
-    . ~/.bashfunction
+if [ -f ~/.bashfunctions ]; then
+    . ~/.bashfunctions
 fi
 ####
 PS1="\[\e[00;01;32;40m\]\!! \[\e[00;01;32;41m\] \w \[\e[00;01;32;40m\] @^[\u] \d $(tail -n 1 <(v4 | awk "{print \$1}")) \n[\D{%H:%M:%S}] $ \[\e[00;33m\]"
