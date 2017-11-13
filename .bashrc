@@ -11,16 +11,23 @@ esac
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 
-# Alias and Function definitions.
+# Alias, Function, and Local definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+##
 if [ -f ~/.bashaliases ]; then
     . ~/.bashaliases
 fi
+##
 if [ -f ~/.bashfunctions ]; then
     . ~/.bashfunctions
+fi
+##Local definitions file is writable by non admin users. This is done for the convenience of guests accessing the system, as well as to make non-administrative modifications to environmental variables possible. 
+##Local definitions should not be synced across systems, as it contains modifications to the standard environment which can be made on a per case basis, and may be incompatible with some, all but some, or all synchronized environments. 
+##Local definitions may contain modifications to the standard environment which could cause crashing, instability, inaccessibility of binaries, and may include aliases for nonexistent or root-owned binaries which may conflict with those available in the system.
+if [ -f ~/.bashlocal ]; then
+    . ~/.bashlocal
 fi
 ####
 PS1="\[\e[00;01;32;40m\]\!! \[\e[00;01;32;41m\] \w \[\e[00;01;32;40m\] @^[\u] \d $(tail -n 1 <(v4 | awk "{print \$1}")) \n[\D{%H:%M:%S}] $ \[\e[00;33m\]"

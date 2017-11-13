@@ -1,9 +1,11 @@
 *
 !.bashaliases
-.bashfunctions
+!.bashfunctions
 !.bashrc
+.bashlocal
 !README.md
 !.config/
 .config/*
 !.config/i3/
+
 

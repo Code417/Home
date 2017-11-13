@@ -1,0 +1,138 @@
+#!/bin/bash
+##|###|####
+######|apt
+update (){
+	if  type "sudo" > /dev/null  || [ $EUID -ne 0 ]; then
+		SU="sudo"
+	fi
+####
+	if type "apt-get" > /dev/null; then
+		PKG=$SU" apt-get"
+	elif type "yum" > /dev/null; then
+		#//TODO:yellow dog %)
+		echo "Not Suported"
+		return
+	else
+		echo "Not Suported"
+		return
+	fi
+	SU=""
+####//TODO:FIX "do some updating "
+	touch packages.pkg
+	while  read -r LINE || [ -n "$LINE" ];do
+		if [[ "$LINE" == "#"* ]];then
+			:
+			#echo "::::ignoring:	   " "$LINE"
+		elif [[ "$LINE" == "--"* ]];then
+			echo "ERR:double rm prefix" "$LINE"
+		elif [[ "$LINE" == "-"* ]];then
+			:
+			#echo "::::uninstalling	" "$LINE"
+		elif ! [[ -z "${LINE// }" ]];then
+			$PKG --yes install $LINE
+		fi
+	done  < packages.pkg
+####
+	PKG=""
+	LINE=""
+}
+######|apt
+###|####|net
+net.http.code ()
+{
+	wget --spider -S  "http://$1" 2>&1 | grep "HTTP/" |awk '{print $2}'
+}
+###|####|net
+#######|House Keeping/clean up
+cleanup ()
+{
+	echo "cleaning xerr files"
+	rm ~/.xsession-error* 2> /dev/null
+	echo "cleaning bash history file"
+	rm ~/.bash_history 2> /dev/null
+	echo "removing sudo temp file "
+	rm ~/.sudo_as_admin_successful 2> /dev/null
+	###########################################
+	#echo "cleaning up /var/cache/apt/archives"
+	#rm /var/cache/apt/archives/*.deb
+}
+
+cleanup.embedded ()
+{
+	echo "cleaning up .../var/cache/apt/archives"
+	rm ~/../usr/var/cache/apt/archives/*.deb
+}
+#######|House Keeping/clean up
+###|git and stuffs
+git.install ()
+{
+cat > /dev/null  <<EOF
+EOF
+	if ! hash git 2>/dev/null;then
+		echo installing git
+		$(git 2>&1 >/dev/null | tac | head -n 1)
+	fi
+}
+
+git.account.init ()
+{
+	if ! hash git 2>/dev/null;then
+		echo installing git
+		#$(git 2>&1 >/dev/null | tac | head -n 1)
+	fi
+	mkdir ~/.ssh
+	if [ $# -eq 0 ];then
+	echo "No arguments supplied"
+	echo "Using Owner Defaults"
+	USERNAME="UsagiCode"
+	else
+	USERNAME=$1
+	fi
+	##ssh-keygen -t rsa -b 4096 -C "UsagiCode@users.noreply.github.com"
+	ssh-keygen -t rsa -b 4096 -C "$USERNAME@users.noreply.github.com"
+	##xclip -sel clip < ~/.ssh/id_rsa.pub
+	##ssh-add			 #will add the SSH key to SSH agent.
+	##git config --global user.name "UsagiCode"
+	git config --global user.name "$USERNAME"
+	##git config --global user.email "UsagiCode@users.noreply.github.com"
+	git config --global user.email "$USERNAME@users.noreply.github.com"
+	git config --global core.editor nano
+	##git remote add origin 
+}
+
+
+git.add ()
+{
+	#KNOWN ERRORS @ ARG 1 . ./ REG .STARTS WITH . FOR CRASH 
+	if [ -f "./.gitignore" ];then
+		while [ $# -gt 0 ]; do
+			if [ -f "$1" ]; then
+				echo adding "$1" to .gitignore
+				echo "">>.gitignore
+				echo -en "!$1">>.gitignore
+			else
+				echo "$1: file not found."
+			fi
+			shift
+		done
+		git add "."
+	else
+		echo ".gitignore: file not found."
+		echo "use \"git.init\""
+	fi
+}
+###|git and stuffs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
