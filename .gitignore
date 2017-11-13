@@ -3,10 +3,7 @@
 .bashfunctions
 !.bashrc
 !README.md
-
-!.config/i3/config
 !.config/
 .config/*
 !.config/i3/
-!.config/i3/config
 
