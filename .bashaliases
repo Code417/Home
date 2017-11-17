@@ -114,17 +114,17 @@ aliasout ()
 ###"'"> hash foo 2>/dev/null || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
 EOF
 
-    cat > $(basename "$BASH_SOURCE")  <<EOF
+    cat > ~/$(basename "$BASH_SOURCE")  <<EOF
 #!/bin/bash
 ##### "This is a dynamically self-generated file."
 ##### "To add a new entry add a new alias, "
 ##### "then use the reload command."
 EOF
 
-    alias >> $(basename "$BASH_SOURCE");
-    echo -en "\n\n\n\n" >> $(basename "$BASH_SOURCE");
-    echo -en "\n\n\n\n" >> $(basename "$BASH_SOURCE");
-    declare -f aliasout >> $(basename "$BASH_SOURCE");
-    echo aliasout >> $(basename "$BASH_SOURCE")
+    alias >> ~/$(basename "$BASH_SOURCE");
+    echo -en "\n\n\n\n" >> ~/$(basename "$BASH_SOURCE");
+    echo -en "\n\n\n\n" >> ~/$(basename "$BASH_SOURCE");
+    declare -f aliasout >> ~/$(basename "$BASH_SOURCE");
+    echo aliasout >> ~/$(basename "$BASH_SOURCE")
 }
 aliasout
