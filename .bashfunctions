@@ -3,21 +3,24 @@
 ######|apt
 update (){
 	if  type "sudo" > /dev/null  || [ $EUID -ne 0 ]; then
-		SU="sudo"
+		SU="sudo "
 	fi
 ####
 	if type "apt-get" > /dev/null; then
 		PKG=$SU" apt-get"
+		$PKG update
+		$PKG upgrade
 	elif type "yum" > /dev/null; then
 		#//TODO:yellow dog %)
-		echo "Not Suported"
-		return
+		PKG=$SU"yum "
+        echo "Not Suported"
+        return
 	else
 		echo "Not Suported"
 		return
 	fi
-	SU=""
 ####//TODO:FIX "do some updating "
+	
 	touch packages.pkg
 	while  read -r LINE || [ -n "$LINE" ];do
 		if [[ "$LINE" == "#"* ]];then
