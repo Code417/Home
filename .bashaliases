@@ -110,6 +110,7 @@ alias ~='cd ~'
 
 
 
+
 aliasout () 
 { 
     cat > /dev/null  <<EOF
