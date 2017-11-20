@@ -55,6 +55,7 @@ alias git.pull.master='git pull -u origin master'
 alias git.push='git push'
 alias git.push.master='git push -u origin master'
 alias git.revert='git revert'
+alias git.set.origin='git remote set-url origin '
 alias git.status='git status'
 alias git.sync='git add . ; git.commit.auto'
 alias git.sync.remote='git add . ; git.commit.auto; git.push.master'
@@ -102,6 +103,8 @@ alias v6='ip addr show|grep inet|grep --color=never    inet6|awk '\''{$1= "";pri
 alias vl='vlock -a -s'
 alias which='type -all'
 alias ~='cd ~'
+
+
 
 
 
