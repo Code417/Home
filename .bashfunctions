@@ -8,8 +8,8 @@ update (){
 ####
 	if type "apt-get" > /dev/null; then
 		PKG=$SU" apt-get"
-		$PKG update
-		$PKG upgrade
+		$PKG -y update&&$PKG upgrade&&$PKG -y dist-upgrade&&echo "Done."
+		apt autoremove -y&&$PKG clean  &&echo "Cleaning...        Done."
 	elif type "yum" > /dev/null; then
 		#//TODO:yellow dog %)
 		PKG=$SU"yum "
@@ -19,8 +19,7 @@ update (){
 		echo "Not Suported"
 		return
 	fi
-####//TODO:FIX "do some updating "
-	
+####
 	touch packages.pkg
 	while  read -r LINE || [ -n "$LINE" ];do
 		if [[ "$LINE" == "#"* ]];then
@@ -87,22 +86,21 @@ git.account.init ()
 	if [ $# -eq 0 ];then
 	echo "No arguments supplied"
 	echo "Using Owner Defaults"
-	USERNAME="UsagiCode"
+	USERNAME="Code417"
 	else
 	USERNAME=$1
 	fi
-	##ssh-keygen -t rsa -b 4096 -C "UsagiCode@users.noreply.github.com"
+	##ssh-keygen -t rsa -b 4096 -C "Code417@users.noreply.github.com"
 	ssh-keygen -t rsa -b 4096 -C "$USERNAME@users.noreply.github.com"
 	##xclip -sel clip < ~/.ssh/id_rsa.pub
 	##ssh-add			 #will add the SSH key to SSH agent.
-	##git config --global user.name "UsagiCode"
+	##git config --global user.name "Code417"
 	git config --global user.name "$USERNAME"
-	##git config --global user.email "UsagiCode@users.noreply.github.com"
+	##git config --global user.email "Code417@users.noreply.github.com"
 	git config --global user.email "$USERNAME@users.noreply.github.com"
 	git config --global core.editor nano
 	##git remote add origin 
 }
-
 
 git.add ()
 {
@@ -125,15 +123,6 @@ git.add ()
 	fi
 }
 ###|git and stuffs
-
-
-
-
-
-
-
-
-
 
 
 
