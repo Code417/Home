@@ -10,6 +10,10 @@ update (){
 		PKG=$SU" apt-get"
 		$PKG -y update&&$PKG upgrade&&$PKG -y dist-upgrade&&echo "Done."
 		apt autoremove -y&&$PKG clean  &&echo "Cleaning...        Done."
+		while  read -r LINE || [ -n "$LINE" ];do #uninstall flash-player (all of it)
+			sudo apt-get purge "$LINE" -y
+		done  <<< "$(apt list --installed 2>&1 |grep "flash"|tr "/" "\n"|grep "flash")"
+
 	elif type "yum" > /dev/null; then
 		#//TODO:yellow dog %)
 		PKG=$SU"yum "
