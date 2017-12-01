@@ -29,6 +29,11 @@ fi
 if [ -f ~/.bashlocal ]; then
     . ~/.bashlocal
 fi
+##over write able file thate saves user setting since bashsave or bs was last run 
+##del with bashclear or bsc
+if [ -f ~/.bashsave ]; then
+    . ~/.bashsave
+fi
 ####
 PS1="\[\e[00;01;32;40m\]\!! \[\e[00;01;32;41m\] \w \[\e[00;01;32;40m\] @^[\u] \d $(tail -n 1 <(v4 | awk "{print \$1}")) \n[\D{%H:%M:%S}] $ \[\e[00;33m\]"
 

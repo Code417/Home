@@ -70,8 +70,7 @@ cleanup.embedded ()
 }
 #######|House Keeping/clean up
 ###|git and stuffs
-git.install ()
-{
+git.install (){
 cat > /dev/null  <<EOF
 EOF
 	if ! hash git 2>/dev/null;then
@@ -80,8 +79,7 @@ EOF
 	fi
 }
 
-git.account.init ()
-{
+git.account.init (){
 	if ! hash git 2>/dev/null;then
 		echo installing git
 		#$(git 2>&1 >/dev/null | tac | head -n 1)
@@ -106,8 +104,7 @@ git.account.init ()
 	##git remote add origin 
 }
 
-git.add ()
-{
+git.add (){
 	#KNOWN ERRORS @ ARG 1 . ./ REG .STARTS WITH . FOR CRASH 
 	if [ -f "./.gitignore" ];then
 		while [ $# -gt 0 ]; do
@@ -127,7 +124,12 @@ git.add ()
 	fi
 }
 ###|git and stuffs
-#addChar (){}
+
+
+
+
+
+
 
 
 
