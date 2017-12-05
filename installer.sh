@@ -7,15 +7,21 @@
 
 # {} prevents exicution until file is fully downloaded
 {
-SRC="https://github.com/Code417/Home/archive/master.zip"
-mkdir -pv ~/tmp/home
-if [ ! -f ~/tmp/master.zip ]; then
-	curl $SRC --output ~/tmp/master.zip --silent
+
+T33MAZ_TMP=~/tmp_t33maz	
+T33MAZ_ZIP_FILE=$T33MAZ_TMP/file.zip
+T33MAZ_ZIP_URL="https://github.com/Code417/Home/archive/master.zip"
+T33MAZ_EXT=$T33MAZ_TMP
+T33MAZ_EXT_IPATH='Home-*/*'
+#T33MAZ_
+mkdir -pv $T33MAZ_EXT	
+if [ ! -f $T33MAZ_ZIP_FILE ]; then
+	curl $T33MAZ_ZIP_URL --output $T33MAZ_ZIP_FILE -L --silent
 fi
-SRC=~/tmp/home/Home-master
-if [ -f ~/tmp/master.zip ]; then
-	unzip -o ~/tmp/master.zip -d ~/tmp/home
+if [ -f $T33MAZ_ZIP_FILE ]; then
+	unzip -o $T33MAZ_ZIP_FILE $T33MAZ_EXT_IPATH -d $T33MAZ_EXT
+	mv $T33MAZ_EXT/Home* $T33MAZ_EXT/home
+	mv -n $T33MAZ_EXT/home/.* $T33MAZ_EXT/home/* ~/
 fi
-cp -r --no-clobber $SRC/.* ~/ 2>/dev/null
-#rm -r ~/tmp/home
+rm -r $T33MAZ_TMP
 }
