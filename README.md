@@ -1,6 +1,9 @@
 # Home
 Default Home Directory For Lab Computers
 
+## Dependencies
+-curl 
+
 ## Automatic Installation
 `curl -L --silent https://raw.githubusercontent.com/Code417/Home/master/installer.sh | bash`
 
