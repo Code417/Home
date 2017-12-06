@@ -116,7 +116,7 @@ alias net.http.date.loop='while true; do echo -en "HTTP/1.1 200 OK\n\n $(date)\n
 alias net.http.nolog='python -m SimpleHTTPServer 8080 2>&1 &'
 alias net.nmap.scan.port.defalut='sudo nmap -sP -PA21,22,25,3389'
 alias net.nmap.scan.subnet='nmap -sP $(tail -n 1 <(v4 | awk "{print \$1}"))'
-alias net.nmap.scan.subnet.v4='nmap -sP $(tail -n 1 <(ip addr show|grep inet|grep --color=never -v inet6|awk '\''{$1= "";print $0}'\'' | awk "{print \$1}"))'
+alias net.nmap.scan.subnet.v4='nmap -sP $(tail -n 1 <(ip addr show|grep inet|grep -v inet6|awk '\''{$1= "";print $0}'\'' | awk "{print \$1}"))'
 alias net.show.arp.tables='arp -a -n'
 alias net.show.open.tcp='lsof -i'
 alias nno='nano.custom'
