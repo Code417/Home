@@ -82,7 +82,7 @@ alias git.set.origin='git remote set-url origin '
 alias git.status='git status'
 alias git.sync='git add . ; git.commit.auto'
 alias git.sync.remote='git add . ; git.commit.auto; git.push.master'
-alias grep='grep --color=auto'
+alias redownload="curl -L --silent https://raw.githubusercontent.com/Code417/Home/master/installer.sh | bash"
 alias h='home'
 alias header='curl -s -D - -o /dev/null'
 alias home='pushd ~'
