@@ -109,8 +109,9 @@ alias mv.docs='mkdir ~/Documents/html/  ~/Documents/img/  ~/Documents/js/  ~/Doc
 alias n='nano'
 alias na='nano'
 alias nan='nano'
-alias nano='nano -SLOwcUm --tabsize=4'
+alias nano='nano -SOULcwm --tabsize=4'
 alias nao='nano'
+alias nn="nano"
 alias net.http='python2 -m SimpleHTTPServer 8080'
 alias net.http.date='echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null'
 alias net.http.date.loop='while true; do echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null; done'
