@@ -3,17 +3,6 @@
 ##### "To add a new entry add a new alias, "
 ##### "then use the reload command."
 alias ..='					cd ..'
-alias ..='					cd ..'
-alias ...='					cd ../..'
-alias ....='				cd ../../..'
-alias .....='				cd ../../../..'
-alias ......='				cd ../../../../..'
-alias .......='				cd ../../../../../..'
-alias ........='			cd ../../../../../../..'
-alias .........='			cd ../../../../../../../..'
-alias ..........='			cd ../../../../../../../../..'
-alias ...........='			cd ../../../../../../../../../..'
-alias ............='		cd ../../../../../../../../../../..'
 alias ...='					cd ../..'
 alias ....='				cd ../../..'
 alias .....='				cd ../../../..'
@@ -30,6 +19,7 @@ alias ...............='		cd ../../../../../../../../../../../../../..'
 alias ................='	cd ../../../../../../../../../../../../../../..'
 alias .................='	cd ../../../../../../../../../../../../../../../..'
 alias README.md='touch README.md'
+alias a='alias'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias anno='nano.custom'
 alias ano='nano.custom'
@@ -94,6 +84,8 @@ alias git.sync.remote='git add . ; git.commit.auto; git.push.master'
 alias h='home'
 alias header='curl -s -D - -o /dev/null'
 alias home='pushd ~'
+alias isGui='dpkg -l | grep "xserver\|wayland"'
+alias kill.apache2='sudo pkill apache2'
 alias l='ls */* 2>/dev/null || ls * '
 alias la='ls -A'
 alias ld='ls'
@@ -113,13 +105,13 @@ alias mklang.line='for i in $(seq 1 ${#LINE}); do touch "${LINE:i-1:1}" ; done'
 alias mr='rm'
 alias msg.test='dialog --title Message --yesno test 5 20; echo 0'
 alias mv='mv -iv'
-alias mv.docs='mkdir ~/Documents/html/  ~/Documents/img/  ~/Documents/js/  ~/Documents/zip/ ; mv *.zip ~/Documents/zip/ ; mv *.js ~/Documents/js/ ; mv *.png *.JPG *.jpg *.jpeg *.png ~/Documents/img/ ; mv *.html *_files ~/Documents/html/'
+alias mv.docs='mkdir ~/Documents/html/  ~/Documents/img/  ~/Documents/js/  ~/Documents/zip/ ~/Documents/pdf/; mv *.pdf ~/Documents/pdf/ ;  mv *.zip ~/Documents/zip/ ; mv *.js ~/Documents/js/ ; mv *.png *.JPG *.jpg *.jpeg *.png *.ico ~/Documents/img/ ; mv *.htm *.html *_files ~/Documents/html/'
 alias n='nano.custom'
 alias na='nano.custom'
 alias nan='nano.custom'
 alias nano.custom='nano -SLOwcUP --tabsize=4'
 alias nao='nano.custom'
-alias net.http='python -m SimpleHTTPServer 8080'
+alias net.http='python2 -m SimpleHTTPServer 8080'
 alias net.http.date='echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null'
 alias net.http.date.loop='while true; do echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null; done'
 alias net.http.nolog='python -m SimpleHTTPServer 8080 2>&1 &'
@@ -140,149 +132,7 @@ alias npm.patch='npm version patch'
 alias npm.republish='npm unpublish --force 0.0.0;npm publish'
 alias openvn='cd  ~/Projects/git/OpenVN/'
 alias ovn='cd  ~/Projects/git/OpenVN/'
-alias pc='cp'
-alias pd='pushd'
-alias pico='nano.custom'
-alias powerhalt=''
-alias poweroff='sudo poweroff'
-alias powerrestart=''
-alias q='exit;exit'
-alias quit='exit;exit'
-alias quote='cat>> quote.txt;#'
-alias readme='touch README.md'
-alias readme.md='touch README.md'
-alias redownload='curl -L --silent https://raw.githubusercontent.com/Code417/Home/master/installer.sh | bash'
-alias reload='source ~/.bashrc'
-alias rem='#'
-alias save='pushd '
-alias signal-pm='chromium-browser --profile-directory=Default --app-id=bikioccmkafdpakkkcpdbppfkghcmihk'
-alias sl='ls'
-alias t='touch'
-alias todo='cat>> todo.txt;#'
-alias unzip.gz='gunzip -lv '
-alias unzip.zip='unzip -vl '
-alias v='ip addr show|grep inet'
-alias v4='ip addr show|grep inet|grep -v inet6|awk '\''{$1= "";print $0}'\'''
-alias v6='ip addr show|grep inet|grep    inet6|awk '\''{$1= "";print $0}'\'''
-alias vl='vlock -a -s'
-alias which='type -all'
-alias ~='cd ~'
-alias .............='		cd ../../../../../../../../../../../..'
-alias ..............='		cd ../../../../../../../../../../../../..'
-alias ...............='		cd ../../../../../../../../../../../../../..'
-alias ................='	cd ../../../../../../../../../../../../../../..'
-alias .................='	cd ../../../../../../../../../../../../../../../..'
-alias README.md='touch README.md'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias anno='nano.custom'
-alias ano='nano.custom'
-alias ao='nano.custom'
-alias apt-dependencies='apt-cache depends '
-alias aptinstall='  sudo apt-get -y install'
-alias aptuninstall='sudo apt-get -y uninstall'
-alias aptupgrade='  sudo apt-get -f upgrade'
-alias b='back'
-alias ba='bashaliases'
-alias back='popd'
-alias bashaliases='nano -SLOwcUP --tabsize=4 ~/.bashaliases'
-alias bashfunctions='nano -SLOwcUP --tabsize=4 ~/.bashfunctions'
-alias bashlocal='nano -SLOwcUP --tabsize=4 ~/.bashlocal'
-alias bashrc='nano -SLOwcUP --tabsize=4 ~/.bashrc'
-alias bf='bashfunctions'
-alias bk.bashaliases='cat ~/.bashaliases > ~/.bashaliases.bk'
-alias bk.bashfunctions='cat ~/.bashfunctions > ~/.bashfunctions.bk'
-alias bk.bashrc='cat ~/.bashrc > ~/.bashrc.bk'
-alias bl='bashlocal'
-alias bm='badmachine'
-alias body='curl -s'
-alias br='bashrc'
-alias c='echo -en "\033[00m";clear'
-alias cd..='cd ..'
-alias clear='echo -en "\033[00m";clear'
-alias cls='echo -en "\033[00m";clear'
-alias colors='echo -e "___________________________________
-\033[02;30m 02;30m \033[00m|\033[00;30m 00;30m \033[00m|\033[01;30m 01;30m \033[00m|\033[01;40m 01;40m \033[00m  \n\
-\033[02;31m 02;31m \033[00m|\033[00;31m 00;31m \033[00m|\033[01;31m 01;31m \033[00m|\033[01;41m 01;41m \033[00m  \n\
-\033[02;32m 02;32m \033[00m|\033[00;32m 00;32m \033[00m|\033[01;32m 01;32m \033[00m|\033[01;42m 01;42m \033[00m  \n\
-\033[02;33m 02;33m \033[00m|\033[00;33m 00;33m \033[00m|\033[01;33m 01;33m \033[00m|\033[01;43m 01;43m \033[00m  \n\
-\033[02;34m 02;34m \033[00m|\033[00;34m 00;34m \033[00m|\033[01;34m 01;34m \033[00m|\033[01;44m 01;44m \033[00m  \n\
-\033[02;35m 02;35m \033[00m|\033[00;35m 00;35m \033[00m|\033[01;35m 01;35m \033[00m|\033[01;45m 01;45m \033[00m  \n\
-\033[02;36m 02;36m \033[00m|\033[00;36m 00;36m \033[00m|\033[01;36m 01;36m \033[00m|\033[01;46m 01;46m \033[00m  \n\
-\033[02;37m 02;37m \033[00m|\033[00;37m 00;37m \033[00m|\033[01;37m 01;37m \033[00m|\033[01;47m 01;47m \033[00m  \n\
-\_______|________|________|_______/"'
-alias cp='cp -iv'
-alias dumptcp='sudo mkdir -pv /var/log/tcpdump; sudo tcpdump 2>&1 | sudo tee /var/log/tcpdump/tcpdump.txt'
-alias e='exit;exit'
-alias edit='geany'
-alias escape.space='sed "s/ /\\ /g"  '
-alias fix.tty='stty sane'
-alias function.print='declare -f'
-alias git.account.test='ssh-add; ssh -T git@github.com'
-alias git.clone='git clone'
-alias git.clone.home='git.clone git@github.com:Code417/Home.git'
-alias git.commit='git commit -m '
-alias git.commit.auto='git commit -m "auto sync from $(hostname -s)"'
-alias git.init='git init'
-alias git.log='git log --oneline'
-alias git.log.multiline='git log'
-alias git.pull='git pull'
-alias git.pull.master='git pull -u origin master'
-alias git.push='git push'
-alias git.push.master='git push -u origin master'
-alias git.revert='git revert'
-alias git.set.origin='git remote set-url origin '
-alias git.status='git status'
-alias git.sync='git add . ; git.commit.auto'
-alias git.sync.remote='git add . ; git.commit.auto; git.push.master'
-alias h='home'
-alias header='curl -s -D - -o /dev/null'
-alias home='pushd ~'
-alias l='ls */* 2>/dev/null || ls * '
-alias la='ls -A'
-alias ld='ls'
-alias lines='wc -l '
-alias ll='ls -FGlAhp'
-alias lless='less -FSRXc'
-alias lock='dm-tool switch-to-greeter'
-alias ls='ls -CF --color=auto'
-alias ls.zip='zipinfo -m '
-alias lx='ls'
-alias man.strftime='man strftime'
-alias mkdie='mkdir'
-alias mkdir='mkdir -pv'
-alias mkdor='mkdir'
-alias mklang='mkdir -p character-set/  dictionary/'
-alias mklang.line='for i in $(seq 1 ${#LINE}); do touch "${LINE:i-1:1}" ; done'
-alias mr='rm'
-alias msg.test='dialog --title Message --yesno test 5 20; echo 0'
-alias mv='mv -iv'
-alias mv.docs='mkdir ~/Documents/html/  ~/Documents/img/  ~/Documents/js/  ~/Documents/zip/ ; mv *.zip ~/Documents/zip/ ; mv *.js ~/Documents/js/ ; mv *.png *.JPG *.jpg *.jpeg *.png ~/Documents/img/ ; mv *.html *_files ~/Documents/html/'
-alias n='nano.custom'
-alias na='nano.custom'
-alias nan='nano.custom'
-alias nano.custom='nano -SLOwcUP --tabsize=4'
-alias nao='nano.custom'
-alias net.http='python -m SimpleHTTPServer 8080'
-alias net.http.date='echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null'
-alias net.http.date.loop='while true; do echo -en "HTTP/1.1 200 OK\n\n $(date)\n" | nc -l 127.0.0.1 8080 > /dev/null; done'
-alias net.http.nolog='python -m SimpleHTTPServer 8080 2>&1 &'
-alias net.nmap.scan.port.defalut='sudo nmap -sP -PA21,22,25,3389'
-alias net.nmap.scan.subnet='nmap -sP $(tail -n 1 <(v4 | awk "{print \$1}"))'
-alias net.nmap.scan.subnet.v4='nmap -sP $(tail -n 1 <(ip addr show|grep inet|grep -v inet6|awk '\''{$1= "";print $0}'\'' | awk "{print \$1}"))'
-alias net.show.arp.tables='arp -a -n'
-alias net.show.open.tcp='lsof -i'
-alias nno='nano.custom'
-alias no='nano.custom'
-alias nohistoryFile='HISTFILE=""'
-alias npm-get.install='sudo npm install --global '
-alias npm-get.uninstall='sudo npm uninstall --global '
-alias npm.install.save='npm install --save '
-alias npm.install.save.dev='npm install --save-dev '
-alias npm.install.save.optional='npm install --save-optional '
-alias npm.patch='npm version patch'
-alias npm.republish='npm unpublish --force 0.0.0;npm publish'
-alias openvn='cd  ~/Projects/git/OpenVN/'
-alias ovn='cd  ~/Projects/git/OpenVN/'
+alias p='poweroff'
 alias pc='cp'
 alias pd='pushd'
 alias pico='nano.custom'
@@ -318,14 +168,6 @@ alias ~='cd ~'
 
 
 
-
-
-
-
-
-
-
-
 aliasout () 
 { 
     cat > /dev/null  <<EOF
@@ -350,29 +192,4 @@ EOF
     declare -f aliasout >> ~/$(basename "$BASH_SOURCE");
     echo aliasout >> ~/$(basename "$BASH_SOURCE")
 }
-aliasout () 
-{ 
-    cat > /dev/null  <<EOF
-###"If your hash bang is /bin/sh then you should care about what POSIX says. type and hash's exit codes aren't terribly well defined by POSIX,"
-###"and hash is seen to exit successfully when the command doesn't exist (haven't seen this with type yet)." 
-###"command's exit status is well defined by POSIX, so that one is probably the safest to use."
-###"'"> command -v foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
-###"'"> type foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
-###"'"> hash foo 2>/dev/null || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
-EOF
-
-    cat > ~/$(basename "$BASH_SOURCE")  <<EOF
-#!/bin/bash
-##### "This is a dynamically self-generated file."
-##### "To add a new entry add a new alias, "
-##### "then use the reload command."
-EOF
-
-    alias >> ~/$(basename "$BASH_SOURCE");
-    echo -en "\n\n\n\n" >> ~/$(basename "$BASH_SOURCE");
-    echo -en "\n\n\n\n" >> ~/$(basename "$BASH_SOURCE");
-    declare -f aliasout >> ~/$(basename "$BASH_SOURCE");
-    echo aliasout >> ~/$(basename "$BASH_SOURCE")
-}
-aliasout
 aliasout
